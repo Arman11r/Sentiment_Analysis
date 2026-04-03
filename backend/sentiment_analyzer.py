@@ -13,22 +13,32 @@ import numpy as np
 
 class SentimentAnalyzer:
     def __init__(self):
-        """Initialize the sentiment analyzer with trained models"""
+        import os
+        import nltk
+
+        nltk.download('punkt')
+        nltk.download('stopwords')
+        nltk.download('wordnet')
+
         self.lemmatizer = WordNetLemmatizer()
         self.stop_words = set(stopwords.words('english'))
-        
-        # Load models
+
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
         try:
-            self.vectorizer = joblib.load('models/vectorizer.pkl')
+            self.vectorizer = joblib.load(os.path.join(BASE_DIR, 'models', 'vectorizer.pkl'))
+
             self.models = {
-                'Naive Bayes': joblib.load('models/naive_bayes_model.pkl'),
-                'SVM': joblib.load('models/svm_model.pkl'),
-                'Logistic Regression': joblib.load('models/logistic_regression_model.pkl')
+                'Naive Bayes': joblib.load(os.path.join(BASE_DIR, 'models', 'naive_bayes_model.pkl')),
+                'SVM': joblib.load(os.path.join(BASE_DIR, 'models', 'svm_model.pkl')),
+                'Logistic Regression': joblib.load(os.path.join(BASE_DIR, 'models', 'logistic_regression_model.pkl'))
             }
+
             print("✓ Models loaded successfully")
-        except FileNotFoundError as e:
-            print(f"Error loading models: {e}")
-            print("Please run train_models.py first to train the models.")
+
+        except Exception as e:
+            print("❌ MODEL LOADING ERROR:")
+            print(e)
             raise
     
     def preprocess_text(self, text):
