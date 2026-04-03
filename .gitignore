@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+frontend/dist/
+.vercel
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.production.local
+.env.development.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+backend/__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ML Models — kept in git because they are small (~50KB)
+# backend/models/*.pkl

@@ -1,0 +1,20 @@
+{
+    "name": "sentiment-sphere",
+    "version": "1.0.0",
+    "description": "AI-Powered Review Analysis Platform",
+    "scripts": {
+        "dev": "cd frontend && npm run dev",
+        "build": "cd frontend && npm run build",
+        "preview": "cd frontend && npm run preview",
+        "install-frontend": "cd frontend && npm install"
+    },
+    "keywords": [
+        "sentiment-analysis",
+        "ai",
+        "nlp",
+        "flask",
+        "vite"
+    ],
+    "author": "",
+    "license": "ISC"
+}

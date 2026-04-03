@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentimentSphere - AI-Powered Review Analysis</title>
+    <meta name="description" content="Analyze movie and restaurant reviews with advanced AI sentiment analysis. Real-time insights powered by machine learning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">
+                <div class="brand-icon">
+                    <svg width="38" height="38" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" fill="url(#navGrad)" opacity="0.15" />
+                        <path d="M20 8L23 14L30 15L25 20L26 27L20 24L14 27L15 20L10 15L17 14L20 8Z"
+                            fill="url(#navGrad)" />
+                        <defs>
+                            <linearGradient id="navGrad" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#667eea" />
+                                <stop offset="100%" stop-color="#f093fb" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="brand-name">SentimentSphere</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active" id="navHome">Home</a>
+                <a href="#movies" class="nav-link" id="navMovies">Movies</a>
+                <a href="#restaurants" class="nav-link" id="navRestaurants">Restaurants</a>
+                <a href="#analyze" class="nav-link" id="navAnalyze">Analyze Text</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Powered by Advanced AI &amp; NLP</span>
+            </div>
+            <h1 class="hero-title">
+                Understand Customer
+                <span class="gradient-text">Sentiment</span>
+                at Scale
+            </h1>
+            <p class="hero-description">
+                Real-time sentiment analysis for movie and restaurant reviews using cutting-edge machine learning.
+                Discover what your customers really think.
+            </p>
+            <div class="hero-buttons">
+                <a href="#movies" class="btn btn-primary" id="heroMoviesBtn">
+                    <span>Explore Movies</span>
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <a href="#analyze" class="btn btn-secondary" id="heroAnalyzeBtn">
+                    <span>Analyze Your Text</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="statModels">3</div>
+                    <div class="stat-label">ML Models</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">95%+</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number">&lt; 1s</div>
+                    <div class="stat-label">Analysis Time</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statMovies">99+</div>
+                    <div class="stat-label">Movies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section id="movies" class="section movies-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <span>🎬</span>
+                    <span>Movie Reviews</span>
+                </div>
+                <h2 class="section-title">Popular Movies Sentiment Analysis</h2>
+                <p class="section-description">
+                    Analyze real-time reviews from popular movies and see what audiences really think
+                </p>
+            </div>
+
+            <div class="search-box reveal reveal-delay-1" style="position: relative;">
+                <input type="text" id="movieSearch" placeholder="Search for a movie..." class="search-input"
+                    autocomplete="off">
+                <button id="movieSearchBtn" class="search-btn">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
+                        <path d="M13 13L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span>Search</span>
+                </button>
+                <div id="movieRecommendations" class="search-recommendations hidden"></div>
+            </div>
+
+            <div id="moviesLoading" class="loading-state hidden">
+                <div class="spinner-large"></div>
+                <p>Analyzing movie reviews...</p>
+            </div>
+
+            <div id="moviesGrid" class="reviews-grid">
+                <!-- Movie cards will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurants Section -->
+    <section id="restaurants" class="section restaurants-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <span>🍽️</span>
+                    <span>Restaurant Reviews</span>
+                </div>
+                <h2 class="section-title">Restaurant Sentiment Analysis</h2>
+                <p class="section-description">
+                    Discover customer sentiment for top restaurants and dining experiences
+                </p>
+            </div>
+
+            <div class="location-selector reveal reveal-delay-1" style="position: relative;">
+                <input type="text" id="locationInput" placeholder="Search for restaurants in Mathura..."
+                    class="search-input" autocomplete="off">
+                <button id="restaurantSearchBtn" class="search-btn">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="2" />
+                        <path d="M13 13L17 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <span>Search Restaurants</span>
+                </button>
+                <div id="restaurantRecommendations" class="search-recommendations hidden"></div>
+            </div>
+
+            <div id="restaurantsLoading" class="loading-state hidden">
+                <div class="spinner-large"></div>
+                <p>Analyzing restaurant reviews...</p>
+            </div>
+
+            <div id="restaurantsGrid" class="reviews-grid">
+                <!-- Restaurant cards will be inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Text Analysis Section -->
+    <section id="analyze" class="section analyze-section">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <div class="section-badge">
+                    <span>✨</span>
+                    <span>Custom Analysis</span>
+                </div>
+                <h2 class="section-title">Analyze Your Own Text</h2>
+                <p class="section-description">
+                    Try our sentiment analysis with your own text or reviews
+                </p>
+            </div>
+
+            <div class="analyze-box reveal reveal-delay-1">
+                <div class="input-section">
+                    <label for="customText">Enter your text</label>
+                    <textarea id="customText"
+                        placeholder="Type or paste your text here... (e.g., product review, customer feedback, social media comment)"
+                        rows="8"></textarea>
+                    <div class="button-group">
+                        <button id="analyzeCustomBtn" class="btn btn-primary">
+                            <span>Analyze Sentiment</span>
+                        </button>
+                        <button id="clearCustomBtn" class="btn btn-secondary">
+                            Clear
+                        </button>
+                    </div>
+                </div>
+
+                <div id="customResults" class="results-section hidden">
+                    <div class="result-header">
+                        <h3>Analysis Results</h3>
+                    </div>
+                    <div id="customSentimentDisplay" class="sentiment-display"></div>
+                    <div id="customConfidenceDisplay" class="confidence-display">
+                        <div class="confidence-label">
+                            <span>Confidence Score</span>
+                            <span id="customConfidence">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="customConfidenceBar" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div id="customModelAgreement" class="model-agreement hidden">
+                        <div class="confidence-label">
+                            <span>Model Agreement</span>
+                            <span id="agreementValue">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="agreementBar" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <!-- Pie Chart Container -->
+                    <div id="customChartContainer" class="chart-container hidden" style="margin-top: 2rem; width: 100%; max-width: 300px; margin-inline: auto;">
+                        <canvas id="customSentimentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Texts -->
+            <div class="samples-section reveal reveal-delay-2">
+                <h3>Try Sample Texts</h3>
+                <div class="samples-grid">
+                    <button class="sample-card" id="samplePositive"
+                        data-text="This movie was absolutely incredible! The cinematography, acting, and storyline were all perfect. Best film I've seen all year!">
+                        <span class="sample-icon">😊</span>
+                        <div class="sample-label">Positive Review</div>
+                    </button>
+                    <button class="sample-card" id="sampleNegative"
+                        data-text="Terrible experience at this restaurant. The food was cold, service was slow, and prices were outrageous. Never coming back.">
+                        <span class="sample-icon">😞</span>
+                        <div class="sample-label">Negative Review</div>
+                    </button>
+                    <button class="sample-card" id="sampleNeutral"
+                        data-text="The movie was okay. Some parts were good, some were boring. Average entertainment for a weekend.">
+                        <span class="sample-icon">😐</span>
+                        <div class="sample-label">Neutral Review</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-brand-inner">
+                    <div class="brand-icon">
+                        <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" fill="url(#footerGrad)" opacity="0.15" />
+                            <path d="M20 8L23 14L30 15L25 20L26 27L20 24L14 27L15 20L10 15L17 14L20 8Z"
+                                fill="url(#footerGrad)" />
+                            <defs>
+                                <linearGradient id="footerGrad" x1="0" y1="0" x2="40" y2="40">
+                                    <stop offset="0%" stop-color="#667eea" />
+                                    <stop offset="100%" stop-color="#f093fb" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="brand-name">SentimentSphere</span>
+                </div>
+                <p class="footer-tagline">
+                    AI-powered sentiment analysis for movies and restaurants. Understand what people really think.
+                </p>
+                <div class="tech-pills">
+                    <span class="tech-pill">Naive Bayes</span>
+                    <span class="tech-pill">SVM</span>
+                    <span class="tech-pill">Logistic Regression</span>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Explore</h4>
+                <div class="footer-links">
+                    <a href="#movies">Movie Analysis</a>
+                    <a href="#restaurants">Restaurant Reviews</a>
+                    <a href="#analyze">Custom Analysis</a>
+                    <a href="#home">Back to Top</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>About</h4>
+                <div class="footer-info">
+                    <p>Built with advanced NLP and Machine Learning</p>
+                    <p style="margin-top: 0.75rem; color: var(--text-muted);">
+                        Covering Hollywood, Bollywood, South Indian &amp; Korean cinema with 99+ movies in our database.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 SentimentSphere. Analyzing sentiments, understanding emotions.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Main App Script (imports moviesDatabase.js internally) -->
+    <script type="module" src="app.js"></script>
+    <!-- UI Enhancements -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+                scrollTopBtn.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('visible');
+            }
+
+            // Active nav link based on scroll position
+            const sections = ['home', 'movies', 'restaurants', 'analyze'];
+            const navMap = { home: 'navHome', movies: 'navMovies', restaurants: 'navRestaurants', analyze: 'navAnalyze' };
+            let current = 'home';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= 100) current = id;
+            });
+            sections.forEach(id => {
+                document.getElementById(navMap[id])?.classList.toggle('active', id === current);
+            });
+        });
+
+        // Scroll to top
+        scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Intersection Observer for reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

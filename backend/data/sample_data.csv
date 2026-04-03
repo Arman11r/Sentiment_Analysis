@@ -1,0 +1,71 @@
+text,sentiment
+"I absolutely love this product! It's amazing and exceeds all my expectations.",positive
+"This is the best purchase I've ever made. Highly recommend!",positive
+"Fantastic quality and great value for money. Very satisfied!",positive
+"Excellent service and quick delivery. Will buy again!",positive
+"Amazing experience! Everything was perfect.",positive
+"Wonderful product! I'm so happy with my purchase.",positive
+"Outstanding quality! Better than I expected.",positive
+"Love it! Works perfectly and looks great.",positive
+"Incredible! This has made my life so much easier.",positive
+"Perfect! Exactly what I needed.",positive
+"Really good product. Worth every penny.",positive
+"Great quality and fast shipping. Impressed!",positive
+"Very pleased with this purchase. Good job!",positive
+"Awesome! Highly satisfied with the quality.",positive
+"Beautiful design and excellent functionality.",positive
+"This is terrible. Worst purchase ever.",negative
+"Absolutely disappointed. Complete waste of money.",negative
+"Horrible quality. Broke after one use.",negative
+"Very poor service. Will never buy again.",negative
+"Disgusting product. Total garbage.",negative
+"Awful experience. Stay away from this!",negative
+"Pathetic quality. Completely useless.",negative
+"Terrible! Nothing works as advertised.",negative
+"Worst customer service I've ever experienced.",negative
+"Disaster! Don't waste your money.",negative
+"Extremely disappointed with the quality.",negative
+"Bad product. Not worth the price.",negative
+"Poor design and even worse functionality.",negative
+"Horrible! Regret buying this.",negative
+"Very bad. Does not meet expectations at all.",negative
+"The product arrived on time.",neutral
+"It's okay. Nothing special but does the job.",neutral
+"Average quality. As expected.",neutral
+"Decent product for the price.",neutral
+"Standard item. No complaints.",neutral
+"It works as described.",neutral
+"Normal quality. Nothing to complain about.",neutral
+"Adequate for basic needs.",neutral
+"Meets the basic requirements.",neutral
+"Fair product. Neither good nor bad.",neutral
+"Acceptable performance overall.",neutral
+"Regular quality product.",neutral
+"It functions properly.",neutral
+"Standard features as mentioned.",neutral
+"Typical product in this category.",neutral
+"The item is as shown in pictures.",neutral
+"Basic functionality is there.",neutral
+"It does what it's supposed to do.",neutral
+"No issues so far.",neutral
+"Works fine for now.",neutral
+"Good quality but too expensive for what it offers.",neutral
+"Fast delivery but product is just average.",neutral
+"Nice packaging but product could be better.",neutral
+"Love the design but wish it had more features.",positive
+"Hate the color but quality is decent.",negative
+"This product changed my life! Absolutely phenomenal!",positive
+"Exceptional quality! Best in class.",positive
+"Superb! Everything I hoped for and more.",positive
+"Brilliant! Works like a charm.",positive
+"Magnificent! Stunning quality.",positive
+"Appalling quality. Complete failure.",negative
+"Dreadful experience from start to finish.",negative
+"Atrocious! Nothing good to say.",negative
+"Abysmal quality. Fell apart immediately.",negative
+"Horrendous! Major disappointment.",negative
+"The package came in a box.",neutral
+"Received the item yesterday.",neutral
+"Product is blue in color.",neutral
+"It has the mentioned specifications.",neutral
+"Came with instructions manual.",neutral
