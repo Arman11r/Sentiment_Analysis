@@ -179,7 +179,10 @@ if __name__ == '__main__':
     print("\n" + "="*60)
     print("🌐 SentimentSphere API Server")
     print("="*60)
-    print("Starting server on http://localhost:5000")
+
+    port = int(os.environ.get("PORT", 10000))  # 🔥 IMPORTANT
+
+    print(f"Starting server on port {port}")
     print("="*60 + "\n")
-    
-    app.run(debug=True, host='0.0.0.0', port=5000)
+
+    app.run(debug=False, host='0.0.0.0', port=port)
