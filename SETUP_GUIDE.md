@@ -46,14 +46,14 @@ python train_models.py
 python3 app.py
 ```
 
-✅ **Backend runs on:** http://localhost:5000
+✅ **Backend runs on:** http://localhost:10000
 
 You should see:
 ```
 ✓ Models loaded successfully
 ✓ Sentiment Analyzer initialized successfully
 🌐 SentimentSphere API Server
-Starting server on http://localhost:5000
+Starting server on http://localhost:10000
 ```
 
 **Keep this terminal running!**
@@ -177,11 +177,11 @@ npm install
 - Install dependencies: `pip install -r requirements.txt`
 - Train models: `python train_models.py`
 
-**Problem:** Port 5000 already in use  
+**Problem:** Port 10000 already in use  
 **Solution:** Kill the process or use a different port:
 ```bash
-# Find what's using port 5000
-lsof -i :5000
+# Find what's using port 10000
+lsof -i :10000
 # Kill it (replace PID with actual process ID)
 kill -9 PID
 ```
@@ -192,8 +192,8 @@ kill -9 PID
 
 **Problem:** Can't connect to backend  
 **Solution:**
-- Make sure backend is running on http://localhost:5000
-- Check `.env` file has: `VITE_API_BASE_URL=http://localhost:5000/api`
+- Make sure backend is running on http://localhost:10000
+- Check `.env` file has: `VITE_API_BASE_URL=http://localhost:10000/api`
 - Look for errors in browser console (F12)
 
 **Problem:** Changes not appearing  
@@ -212,7 +212,7 @@ Before using the app, verify:
 ✅ Python installed (`python3 --version`)  
 ✅ Frontend dependencies installed (`npm install` completed)  
 ✅ Backend models trained (`train_models.py` completed)  
-✅ Backend running on http://localhost:5000  
+✅ Backend running on http://localhost:10000  
 ✅ Frontend running on http://localhost:3000  
 ✅ Browser open at http://localhost:3000  
 ✅ No errors in either terminal  
